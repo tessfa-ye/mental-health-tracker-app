@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "64327048543",
+    "firebase_url": "https://mental-health-1abea-default-rtdb.firebaseio.com",
+    "project_id": "mental-health-1abea",
+    "storage_bucket": "mental-health-1abea.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64327048543:android:9ef321a9143b288f57aaea",
+        "android_client_info": {
+          "package_name": "com.example.mentalhealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "64327048543-10coep2r7bn43tq629ck8uab8id5ej2e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRbW_aoTu-s92JmOEc0VtaBuGkmCYG6Bk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "64327048543-04vv8n1bcs1k0f5p4ovdkirbg5cf5rg1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "64327048543-jrpfhv3nv74j2rmc4078ipn69gajq6f8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mentalhealth"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

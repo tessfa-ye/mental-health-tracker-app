@@ -1,0 +1,250 @@
+{
+  "facts": [
+    "Abnormal physical movement (catatonia)",
+    "Aggression or anxiety",
+    "Anger or irritability",
+    "Anxiety or mood disturbance occurs if the drug is not taken",
+    "Appearing expressionless, crying easily over things that are not typically sad",
+    "Back pain or Abdominal pain",
+    "Brain injury",
+    "Changes in appetite",
+    "Clonic (involuntary rhythmic jerking)",
+    "Compulsion or craving: a strong desire to take the substance",
+    "Confused thinking or reduced ability to concentrate",
+    "Constant worry about livelihood",
+    "Decline in self-care or personal hygiene",
+    "Decreased need for sleep",
+    "Delusional thought (thoughts that are inconsistent with reality)",
+    "Destabilization and abnormal stimulation of nervous system cells",
+    "Difficulties in controlling the use of the substance",
+    "Difficulty expressing thoughts clearly",
+    "Difficulty making decisions",
+    "Difficulty understanding situations or people",
+    "Diminished or incongruent emotional expressions",
+    "Disorganized speech and thinking",
+    "Drugs/alcohol",
+    "Electrolyte imbalances",
+    "Elevated or irritable mood",
+    "Excessive energy or agitation",
+    "Excessive or pressured seizures",
+    "Excessive or pressured speech",
+    "Excessive worry",
+    "Evidence of tolerance such that higher doses are required to achieve the same effect",
+    "Fatigue",
+    "Feeling guilty about things left unsaid or undone",
+    "Feeling hopeless",
+    "Feeling irritable or depressed",
+    "Feeling like one has special powers or abilities",
+    "Feeling nervous",
+    "Feeling of dread or fear",
+    "Feeling sad",
+    "Feeling scared",
+    "Feelings of guilt or worthlessness",
+    "Grief from loss of family members",
+    "Having trouble sleeping",
+    "Headache",
+    "Hiding food or eating in secret",
+    "Hyper-vigilant reflexes (easily startled, jumpy)",
+    "Impaired perception (hallucinations – auditory, hearing, taste)",
+    "Impulsive behavior",
+    "Infection Body Shaking",
+    "Irritability",
+    "Lacking motivation",
+    "Loss of interest",
+    "Misuse of alcohol, prescription medications or recreational drugs",
+    "Mood change",
+    "Mood swings",
+    "Muscle tension",
+    "Neglect of interests and an increased amount of time taken to obtain the substance or recover from its effects",
+    "Not doing well in school",
+    "Numbness (inability to experience emotion)",
+    "Panic attacks",
+    "Persistent substance use, despite evidence of its harmful consequences",
+    "Potentially harmful behavior",
+    "Preoccupation with body shape and weight",
+    "Rapid thoughts",
+    "Restlessness",
+    "Shortness of breath (Palpitations)",
+    "Sleep disturbance",
+    "Sleep issues - insomnia (too little sleep) or hypersomnia (too much sleep)",
+    "Slurred speech",
+    "Social withdrawal",
+    "Stress from conflict or displacement",
+    "Suicidal thinking",
+    "Suspiciousness, paranoid ideas, or uneasiness with others",
+    "Sweating",
+    "Thoughts are expressed in an impaired or illogical manner",
+    "Tremulousness or shakiness",
+    "Trouble thinking clearly and logically",
+    "Unstable walking",
+    "Unusual or overly intense ideas, strange feelings, or a lack of feelings",
+    "Vascular disease",
+    "Weight loss or gain",
+    "Withdrawal from activities"
+
+    
+  ],
+  "rules": [
+    {
+      "conditions": [
+        "Aggression or anxiety",
+        "Anxiety or mood disturbance occurs if the drug is not taken",
+        "Compulsion or craving: a strong desire to take the substance",
+        "Difficulties in controlling the use of the substance",
+        "Evidence of tolerance such that higher doses are required to achieve the same effect",
+        "Infection Body Shaking",
+        "Neglect of interests and an increased amount of time taken to obtain the substance or recover from its effects",
+        "Persistent substance use, despite evidence of its harmful consequences",
+        "Sleep disturbance",
+        "Slurred speech",
+        "Unstable walking"
+      ],
+      "conclusion": "Addiction",
+      "definition": "Dependence (addiction) — continued desire for and use of a psychoactive substance to satisfy pleasurable urges and/or to alleviate the effects of withdrawal. Dependence may be psychological or physical in nature. Worldwide, alcohol consumption and problems related to alcohol vary widely, but, in most countries, the burden of disease and death remains significant. Alcohol consumption is the world’s third-largest risk factor for disease and disability behind high blood pressure (first) and smoking (second). In middle-income countries, it is the greatest risk.",
+      "treatment": "Refer to medical evaluation, diagnosis, & medical stabilization as indicated. Assess for underlying psychiatric conditions (e.g., depression, anxiety). Refer to a drug counseling program if available or psychological services for treatment. Evaluate and provide or refer to appropriate treatments for underlying psychiatric conditions. Encourage individuals to identify people who can provide support when cravings or distress occur."
+    },
+    {
+      "conditions": [
+        "Excessive worry",
+        "Muscle tension",
+        "Panic attacks",
+        "Hyper-vigilant reflexes (easily startled, jumpy)",
+        "Restlessness",
+        "Shortness of breath (Palpitations)",
+        "Sleep issues-insomnia (too little sleep) or hypersomnia (too much sleep)",
+        "Stress from conflict or displacement",
+        "Sweating",
+        "Difficulty expressing thoughts clearly",
+        "Tremulousness or shakiness",
+        "Excessive energy or agitation"
+      ],
+      "conclusion": "Anxiety",
+      "definition": "Anxiety is a general feeling of unease, worry, and uneasiness. It can be triggered by a variety of feelings, behaviors, and thoughts. Anxiety may be defined as a state of neurological arousal characterized by both physical and psychological signs. Anxiety may be a normal reaction that acts as a signal to the body that aspects of its systems are under stress. Prevalence estimates of anxiety disorders are generally higher in developed countries than in developing countries according to global mental health survey data. The specific neuro-biological mechanisms underlying anxiety are complex and may involve genetic, biological, and psychological factors.",
+      "treatment": "Consider cognitive-behavioral therapy (CBT) or other therapeutic approaches. Practice relaxation techniques like deep breathing, mindfulness, or yoga. Regular exercise and a balanced diet are also beneficial."
+    },
+    {
+      "conditions": [
+        "Changes in appetite",
+        "Confused thinking or reduced ability to concentrate",
+        "Fatigue",
+        "Feeling hopeless",
+        "Feeling sad",
+        "Feelings of guilt or worthlessness",
+        "Loss of interest",
+        "Sleep issues - insomnia (too little sleep) or hypersomnia (too much sleep)",
+        "Stress from conflict or displacement",
+        "Suicidal thinking",
+        "Weight loss or gain",
+        "Withdrawal from activities"
+      ],
+      "conclusion": "Depression",
+      "definition": "Depression is a mood disorder that causes persistent feelings of sadness, hopelessness, and loss of interest. Depression is a decline in mood that persists for an extended period, represents a decrease from a previous level of function, and causes some impairment in function. Depression contributes significantly to the global burden of disease affecting an estimated 350 million people worldwide. In many cultures depression is expressed commonly as somatic or physical complaints (e.g. fatigue, generalized pain, digestive problems, headache).",
+      "treatment": "Consult with a mental health professional for therapy and possibly medication if symptoms are persistent and severe, refer to a crisis center/doctor/hospital for further evaluation, diagnosis, & treatment. Engage in regular physical activity, maintain a healthy diet, and stay connected with supportive friends and family. Offer support: emphasize that there is no shame in feeling depressed to get help the individual identify others who can serve as support (family, friends) help him/her identify & focus on personal strengths and the positives in a challenging situation help him/her identify & focus on what they can control ask about hopeless and suicidal feelings and the intent to act on these feelings."
+    },
+    {
+      "conditions": [
+        "Changes in appetite",
+        "Feeling sad",
+        "Social withdrawal",
+        "Preoccupation with body shape and weight",
+        "Hiding food or eating in secret",
+        "Electrolyte imbalances"
+      ],
+      "conclusion": "Eating Disorder",
+      "definition": "Eating disorders are a group of mental health conditions that affect how you eat and think about food.",
+      "treatment": "Consult with a healthcare provider or mental health specialist specializing in eating disorders. Engage in therapy, such as cognitive-behavioral therapy (CBT) or nutritional counseling. Establish a healthy eating routine and seek support from trusted individuals."
+    },
+    {
+      "conditions": [
+        "Elevated or irritable mood",
+        "Excessive energy or agitation",
+        "Decreased need for sleep",
+        "Excessive or pressured speech",
+        "Impulsive behavior",
+        "Potentially harmful behavior",
+        "Rapid thoughts"
+      ],
+      "conclusion": "Bipolar Disorder",
+      "definition": "Bipolar disorder is a type of mood disorder characterized by distinct phases of sustained depression and/or distinct periods of a mood which is persistent and abnormally elevated, expansive, or irritable. Psychosis may be present also in either phase.",
+      "treatment": "Educate the family and patient about the symptoms and importance of medication compliance. Discuss medication options and regimens with the doctor. Encourage a routine and reward constructive"
+    },
+    {
+      "conditions": [
+        "Brain injury",
+        "Clonic (involuntary rhythmic jerking)",
+        "Destabilization and abnormal stimulation of nervous system cells",
+        "Drugs/alcohol",
+        "Excessive or pressured seizures",
+        "Headache",
+        "Muscle tension",
+        "Potentially harmful behavior",
+        "Sweating",
+        "Tremulousness or shakiness",
+        "Vascular disease"
+      ],
+      "conclusion": "Epilepsy",
+      "definition": "Epilepsy is a chronic disorder of the brain affecting approximately 50 million people worldwide, with nearly 80% of the people with epilepsy found in developing countries. The condition is characterized by recurrent seizures (i.e., brief episodes of involuntary shaking) which may involve a part of the body (partial) or the entire body (generalized). Seizures are due to excessive electrical discharges within a network of brain cells and may be accompanied by the loss of consciousness and control of bowel or bladder function.",
+      "treatment": "Educate family/caretakers about the signs and symptoms of epilepsy and provide guidance on what to do during a seizure. Help identify stressors and coping mechanisms. Encourage maintaining a routine and adherence to medication. Stress the importance of keeping track of appointments."
+    },
+    {
+      "conditions": [
+        "Difficulty making decisions",
+        "Difficulty understanding situations or people",
+        "Fatigue",
+        "Grief from loss of family members",
+        "Social withdrawal",
+        "Stress from conflict or displacement",
+        "Weight loss or gain"
+      ],
+      "conclusion": "Grief",
+      "definition": "Grief is a feeling of loss and sadness over the loss of someone close to you.",
+      "treatment": "Seek support from a grief counselor or support group. Allow yourself to mourn and express your emotions. Engage in self-care activities and lean on friends and family for support."
+    },
+    {
+      "conditions": [
+        "Suspiciousness, paranoid ideas, or uneasiness with others",
+        "Trouble thinking clearly and logically",
+        "Social withdrawal",
+        "Misuse of alcohol, prescription medications or recreational drugs",
+        "Delusional thought (thoughts that are inconsistent with reality)",
+        "Unusual or overly intense ideas, strange feelings, or a lack of feelings",
+        "Decline in self-care or personal hygiene"
+      
+      ],
+      "conclusion": "Psychosis",
+      "definition": "Psychosis is the term for a collection of symptoms that happen when a person has trouble telling the difference between what’s real and what’s not. This disconnection from reality can happen for several reasons, including many different mental and physical conditions. It’s usually treatable with medication and other techniques.\n ",
+      "treatment": "Seek immediate help from a mental health professional, crisis hotline, or emergency services. Do not hesitate to reach out to friends, family, or trusted individuals for support."
+    },
+    {
+      "conditions": [
+        "Social withdrawal",
+        "Not doing well in school",
+        "Having trouble sleeping",
+        "Feeling irritable or depressed",
+        "Disorganized speech and thinking.",
+        "Lacking motivation",
+        "Appearing expressionless, crying easily over things that are not typically sad",
+        "Confused thinking or reduced ability to concentrate",
+        "Impaired perception (hallucinations, auditory, hearing, taste)",
+        "Thoughts are expressed in an impaired or illogical manner"
+      ],
+      "conclusion": "Schizophrenia",
+      "definition": "Schizophrenia is a serious mental disorder in which people interpret reality abnormally. Schizophrenia may result in some combination of hallucinations, delusions, and extremely disordered thinking and behavior that impairs daily functioning. Schizophrenia is a chronic disorder that may be characterized by a decline in motivation, socialization and function, diminished emotional expression, disorganized or abnormal motor behavior (physical movement) and distorted sense of reality (with disturbances in perception or the expression of thought). Theories regarding the cause have been proposed and have included a genetic, biological, psychosocial, and infectious basis for the disease.",
+      "treatment": "Consult with a psychiatrist for proper diagnosis and treatment. Antipsychotic medications, along with therapy, are commonly used to manage symptoms. Support from family and friends is crucial."
+    },
+    {
+      "conditions": [
+        "Constant worry about livelihood",
+        "Difficulty making decisions",
+        "Difficulty understanding situations or people",
+        "Fatigue",
+        "Restlessness",
+        "Stress from conflict or displacement"
+      ],
+      "conclusion": "Post-traumatic stress disorder",
+      "definition": "Stress is a state of mind characterized by anxiety, worry, and a lack of energy.",
+      "treatment": "Identify and address the sources of stress, if possible. Practice relaxation techniques such as meditation, deep breathing, and yoga. Seek support from a mental health professional if needed."
+    }
+  ]
+}
+
