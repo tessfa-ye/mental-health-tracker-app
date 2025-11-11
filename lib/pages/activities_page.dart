@@ -17,6 +17,7 @@ class ActivitiesScreen extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
         foregroundColor: Colors.black87,
         elevation: 1,
+        automaticallyImplyLeading: false,
       ),
       body: ListView(
         padding: EdgeInsets.zero,

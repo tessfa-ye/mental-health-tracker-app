@@ -142,6 +142,7 @@ class _ChatScreenState extends State<ChatScreen> {
         foregroundColor: Colors.black87,
         elevation: 1,
         title: Center(child: const Text("Chat with AI")),
+        automaticallyImplyLeading: false,
       ),
       body: Column(
         children: [

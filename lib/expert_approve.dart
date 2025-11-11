@@ -187,8 +187,9 @@ class _ExpertApproveState extends State<ExpertApprove> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 60, 172, 185),
-        title: const Text(' Delete or Approve Experts'),
+        backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+        foregroundColor: Colors.black87,
+        elevation: 1, title: const Text(' Delete or Approve Experts'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {

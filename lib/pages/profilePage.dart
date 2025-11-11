@@ -154,6 +154,7 @@ class _ProfileState extends State<Profile> {
         elevation: 1,
         title: Text('My Profile'),
         centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
       body: Center(
         child: SingleChildScrollView(

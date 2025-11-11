@@ -12,7 +12,9 @@ class InfoScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Why Track Your Mental health?'),
         centerTitle: true,
-        backgroundColor: Colors.redAccent.withOpacity(0.8),
+        backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+        foregroundColor: Colors.black87,
+        elevation: 1,
       ),
       drawer: const Menu(),
       body: SingleChildScrollView(

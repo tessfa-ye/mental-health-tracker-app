@@ -29,8 +29,9 @@ class _IntroState extends State<Intro> {
       imageHeight: 245,
     ),
     Introduction(
-      title: 'Are You Ready',
-      subTitle: 'Welcome To Mental Health Tracker. You can start',
+      title: 'Are You Ready?',
+      subTitle:
+          'Welcome To Mental Health Tracker Application. Now You can start your Journey with us',
       imageUrl: 'assets/images/mentaldep.jpg',
       titleTextStyle: tstyle,
       subTitleTextStyle: ststyle,
