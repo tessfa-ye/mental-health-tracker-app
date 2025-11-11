@@ -1,4 +1,4 @@
-name: mentalassessment
+name: mentalhealthtrackerapp
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -75,7 +75,7 @@ dependencies:
   flutter_file_dialog:
   syncfusion_flutter_charts:
   device_info_plus:
-  flutter_dotenv:
+  curved_navigation_bar:
 
 dev_dependencies:
   flutter_test:

@@ -1,8 +1,8 @@
 // ignore_for_file: deprecated_member_use, avoid_types_as_parameter_names, prefer_for_elements_to_map_fromiterable, unnecessary_this, non_constant_identifier_names, unused_import
 
-import 'package:mentalassessment/components/NavigationDrawer.dart';
+import 'package:mentalhealthtrackerapp/components/NavigationDrawer.dart';
 import 'package:flutter/material.dart';
-import 'package:mentalassessment/pages/functionality.dart';
+import 'package:mentalhealthtrackerapp/pages/functionality.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UserData extends StatefulWidget {
@@ -20,7 +20,9 @@ class _UserDataState extends State<UserData> {
     var width = size.width;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 60, 172, 185),
+        backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+        foregroundColor: Colors.black87,
+        elevation: 1,
         title: const Text(
           'Mental Health Tracker',
           style: TextStyle(

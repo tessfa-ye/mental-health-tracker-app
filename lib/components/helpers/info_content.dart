@@ -1,4 +1,4 @@
-import 'package:mentalassessment/components/helpers/assets.dart';
+import 'package:mentalhealthtrackerapp/components/helpers/assets.dart';
 
 class InfoContent {
   static final List<Map<String, String>> list = [

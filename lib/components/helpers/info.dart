@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mentalassessment/components/helpers/info_content.dart';
+import 'package:mentalhealthtrackerapp/components/helpers/info_content.dart';
 
 import '../../HomeScreen.dart';
 

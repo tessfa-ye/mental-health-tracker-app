@@ -8,7 +8,9 @@ class DiseaseLevel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 61, 138, 171),
+        backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+        foregroundColor: Colors.black87,
+        elevation: 1,
         title: const Text('Disease Level'),
       ),
       body: Center(

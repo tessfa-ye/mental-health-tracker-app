@@ -1,23 +1,15 @@
 // ignore_for_file: camel_case_types
 
-import 'package:mentalassessment/BottomNavigationBar.dart';
-import 'package:mentalassessment/IntroScreen.dart';
+import 'package:mentalhealthtrackerapp/BottomNavigationBar.dart';
+import 'package:mentalhealthtrackerapp/IntroScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mentalhealthtrackerapp/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: ".env");
-  await Firebase.initializeApp(
-      options: FirebaseOptions(
-    apiKey: dotenv.env['FIREBASE_API_KEY']!,
-    appId: dotenv.env['FIREBASE_APP_ID']!,
-    messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID']!,
-    projectId: dotenv.env['FIREBASE_PROJECT_ID']!,
-    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET']!,
-  ));
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -66,7 +58,7 @@ class _AccessState extends State<Access> {
 
   @override
   Widget build(BuildContext context) {
-    return userAvailable ? const Homescreen() : const Intro();
+    return userAvailable ? AppBottomNavigation() : Intro();
   }
 }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mentalassessment/Activities/quiz/answer_button.dart';
-import 'package:mentalassessment/Activities/quiz/data/questions.dart';
+import 'package:mentalhealthtrackerapp/Activities/quiz/answer_button.dart';
+import 'package:mentalhealthtrackerapp/Activities/quiz/data/questions.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({

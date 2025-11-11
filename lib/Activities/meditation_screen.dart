@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 
@@ -16,14 +15,15 @@ class _MeditationScreenState extends State<MeditationScreen> {
   @override
   void initState() {
     super.initState();
-  
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 60, 172, 185),
+        backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+        foregroundColor: Colors.black87,
+        elevation: 1,
         title: const Text('Meditate'),
       ),
       body: Column(
@@ -98,8 +98,7 @@ class _MeditationScreenState extends State<MeditationScreen> {
             },
 
             // This Callback will execute when the Countdown Ends.
-            onComplete: () async {
-            },
+            onComplete: () async {},
           )),
         ],
       ),
@@ -134,12 +133,11 @@ class _MeditationScreenState extends State<MeditationScreen> {
         child: ElevatedButton(
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all(Colors.green),
-
       ),
       onPressed: onPressed,
       child: Text(
         title,
-        style: const TextStyle(color: Colors.white,fontSize: 8),
+        style: const TextStyle(color: Colors.white, fontSize: 8),
       ),
     ));
   }

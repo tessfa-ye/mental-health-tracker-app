@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mentalassessment/components/lottie_widget.dart';
+import 'package:mentalhealthtrackerapp/components/lottie_widget.dart';
 
 class HeroPage extends StatefulWidget {
   const HeroPage({super.key});
@@ -16,7 +16,6 @@ class _HeroPageState extends State<HeroPage> {
         LottieWidget(
           path: 'assets/animations/43792-yoga-se-hi-hoga.json',
         ),
-        //MotivationWidget(),
       ],
     );
   }

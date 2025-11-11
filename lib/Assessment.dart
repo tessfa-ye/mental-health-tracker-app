@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mentalassessment/QuizPage.dart';
-import 'package:mentalassessment/HomeScreen.dart';
+import 'package:mentalhealthtrackerapp/QuizPage.dart';
+import 'package:mentalhealthtrackerapp/HomeScreen.dart';
 
 class Assessment extends StatefulWidget {
   final String selectedDisease;
@@ -257,7 +257,9 @@ class _AssessmentState extends State<Assessment> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 60, 172, 185),
+        backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+        foregroundColor: Colors.black87,
+        elevation: 1,
         title: const Text(
           'The Level of Your Mentality',
           style: TextStyle(fontSize: 23.0, fontWeight: FontWeight.w900),

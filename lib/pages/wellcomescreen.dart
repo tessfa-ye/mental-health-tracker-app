@@ -5,7 +5,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import '../BottomNavigationBar.dart';
 import 'dart:io';
-import 'package:mentalassessment/main.dart';
+import 'package:mentalhealthtrackerapp/main.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -74,6 +74,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     var width = size.width;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+        foregroundColor: Colors.black87,
+        elevation: 1,
         title: Text('Fill Your Basic Information'),
         centerTitle: true,
         flexibleSpace: Container(
@@ -92,6 +95,37 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: height / 20),
+              // ✅ Profile Image Picker
+              Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                  CircleAvatar(
+                    radius: 60,
+                    backgroundColor: Colors.grey.shade300,
+                    backgroundImage:
+                        _imageFile != null ? FileImage(_imageFile!) : null,
+                    child: _imageFile == null
+                        ? Icon(Icons.person, size: 60, color: Colors.grey[700])
+                        : null,
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    right: 4,
+                    child: InkWell(
+                      onTap: _pickImage,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.blueAccent,
+                        ),
+                        padding: EdgeInsets.all(8),
+                        child: Icon(Icons.camera_alt,
+                            color: Colors.white, size: 20),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               SizedBox(height: height / 30),
               buildTextFormField(
                 controller: name,
@@ -209,7 +243,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => Homescreen()),
+                          MaterialPageRoute(
+                              builder: (context) => AppBottomNavigation()),
                         );
                       }
                     },

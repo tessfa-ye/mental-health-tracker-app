@@ -3,13 +3,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mentalassessment/Account/ExpertRegister.dart';
-import 'package:mentalassessment/Account/forget_password.dart';
-import 'package:mentalassessment/Account/register_page.dart';
-import 'package:mentalassessment/BottomNavigationBar.dart';
-import 'package:mentalassessment/pages/hero_page.dart';
+import 'package:mentalhealthtrackerapp/Account/ExpertRegister.dart';
+import 'package:mentalhealthtrackerapp/Account/forget_password.dart';
+import 'package:mentalhealthtrackerapp/Account/register_page.dart';
+import 'package:mentalhealthtrackerapp/BottomNavigationBar.dart';
+import 'package:mentalhealthtrackerapp/pages/hero_page.dart';
 
-import '../pages/admin_approval.dart';
+import '../pages/admin_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key, this.onTap}) : super(key: key);
@@ -75,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
 
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: ((context) => const Homescreen())),
+        MaterialPageRoute(builder: ((context) => const AppBottomNavigation())),
       );
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context); // Close the loading dialog

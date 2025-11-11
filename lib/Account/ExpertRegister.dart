@@ -19,7 +19,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
-  final TextEditingController _workExperienceController = TextEditingController();
+  final TextEditingController _workExperienceController =
+      TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
   String? _selectedJob;
   FilePickerResult? _cvFile;
@@ -29,7 +30,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   Future<void> _pickProfileImage() async {
     final ImagePicker _picker = ImagePicker();
-    final XFile? pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+    final XFile? pickedFile =
+        await _picker.pickImage(source: ImageSource.gallery);
 
     if (pickedFile != null) {
       setState(() {
@@ -45,7 +47,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
       });
 
       try {
-        CollectionReference experts = FirebaseFirestore.instance.collection('experts');
+        CollectionReference experts =
+            FirebaseFirestore.instance.collection('experts');
 
         String? cvDownloadUrl;
         if (_cvFile != null && _cvFile!.files.isNotEmpty) {
@@ -80,7 +83,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ThankYouPage(profileImageUrl: profileImageUrl)),
+          MaterialPageRoute(
+              builder: (context) =>
+                  ThankYouPage(profileImageUrl: profileImageUrl)),
         );
       } catch (e) {
         print("Exception: $e");
@@ -100,7 +105,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
           '.' +
           _cvFile!.files.first.extension!;
       final String storagePath = 'cv_uploads/$fileName';
-      final Reference storageReference = FirebaseStorage.instance.ref().child(storagePath);
+      final Reference storageReference =
+          FirebaseStorage.instance.ref().child(storagePath);
 
       final UploadTask uploadTask = storageReference.putFile(cvFile);
       final TaskSnapshot taskSnapshot = await uploadTask.whenComplete(() {});
@@ -118,7 +124,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
           '.' +
           imageFile.path.split('.').last;
       final String storagePath = 'profile_images/$fileName';
-      final Reference storageReference = FirebaseStorage.instance.ref().child(storagePath);
+      final Reference storageReference =
+          FirebaseStorage.instance.ref().child(storagePath);
 
       final UploadTask uploadTask = storageReference.putFile(imageFile);
       final TaskSnapshot taskSnapshot = await uploadTask.whenComplete(() {});
@@ -147,7 +154,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
       appBar: AppBar(
         title: const Text('Experts Registration'),
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 60, 172, 185),
+        backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+        foregroundColor: Colors.black87,
+        elevation: 1,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -189,7 +198,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your email';
-                    } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+                    } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                        .hasMatch(value)) {
                       return 'Please enter a valid email';
                     }
                     return null;
@@ -260,7 +270,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
                 TextFormField(
                   controller: _workExperienceController,
-                  decoration: const InputDecoration(labelText: 'Work Experience'),
+                  decoration:
+                      const InputDecoration(labelText: 'Work Experience'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your work experience';
@@ -307,9 +318,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 _isUploading
                     ? const CircularProgressIndicator()
                     : ElevatedButton(
-                  onPressed: _registerExpert,
-                  child: const Text('Submit'),
-                ),
+                        onPressed: _registerExpert,
+                        child: const Text('Submit'),
+                      ),
               ],
             ),
           ),

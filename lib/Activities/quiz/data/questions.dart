@@ -1,4 +1,4 @@
-import 'package:mentalassessment/Activities/quiz/models/quiz_question.dart';
+import 'package:mentalhealthtrackerapp/Activities/quiz/models/quiz_question.dart';
 
 const questions = [
   QuizQuestion(

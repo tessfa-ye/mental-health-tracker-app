@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mentalassessment/components/lottie_widget.dart';
+import 'package:mentalhealthtrackerapp/components/lottie_widget.dart';
 
 class BreathingScreen extends StatefulWidget {
   const BreathingScreen({super.key});
@@ -14,7 +14,9 @@ class _BreathingScreenState extends State<BreathingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 60, 172, 185),
+        backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+        foregroundColor: Colors.black87,
+        elevation: 1,
         title: const Text(' Breathing'),
       ),
       body: Column(

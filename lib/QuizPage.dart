@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:mentalassessment/HomeScreen.dart';
+import 'package:mentalhealthtrackerapp/HomeScreen.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import 'main.dart';
@@ -23,7 +23,9 @@ class _QuizPageState extends State<QuizPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 60, 172, 185),
+        backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+        foregroundColor: Colors.black87,
+        elevation: 1,
         title: const Text('Quiz Page'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),

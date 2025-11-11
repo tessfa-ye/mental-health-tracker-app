@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mentalassessment/Assessment.dart';
+import 'package:mentalhealthtrackerapp/Assessment.dart';
 
 class ResultPage extends StatelessWidget {
   final Map<String, dynamic> conclusion;
@@ -10,7 +10,9 @@ class ResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 61, 138, 171),
+        backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+        foregroundColor: Colors.black87,
+        elevation: 1,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),

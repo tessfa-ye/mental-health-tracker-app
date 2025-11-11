@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mentalassessment/components/lottie_widget.dart';
+import 'package:mentalhealthtrackerapp/components/lottie_widget.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile(

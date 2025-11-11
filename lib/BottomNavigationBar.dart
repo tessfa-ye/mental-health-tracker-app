@@ -1,24 +1,25 @@
-import 'package:mentalassessment/HomeScreen.dart';
-import 'package:mentalassessment/main.dart';
+import 'package:mentalhealthtrackerapp/HomeScreen.dart';
+import 'package:mentalhealthtrackerapp/main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:mentalassessment/pages/activities_page.dart';
-import 'package:mentalassessment/opneAI/chat_screen.dart';
-import 'package:mentalassessment/pages/profilePage.dart';
+import 'package:mentalhealthtrackerapp/pages/activities_page.dart';
+import 'package:mentalhealthtrackerapp/AI_chat/chat_screen.dart';
+import 'package:mentalhealthtrackerapp/pages/profilePage.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
-class Homescreen extends StatefulWidget {
-  const Homescreen({super.key});
+class AppBottomNavigation extends StatefulWidget {
+  const AppBottomNavigation({super.key});
 
   @override
-  State<Homescreen> createState() => _HomescreenState();
+  State<AppBottomNavigation> createState() => _AppBottomNavigationState();
 }
 
-class _HomescreenState extends State<Homescreen> {
+class _AppBottomNavigationState extends State<AppBottomNavigation> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
     const UserData(),
-    ChatScreen(),
+    const ChatScreen(),
     const ActivitiesScreen(),
     Profile(),
   ];
@@ -45,39 +46,34 @@ class _HomescreenState extends State<Homescreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Choose a soft neutral color for the background
+    Color navBarColor = Color.fromARGB(255, 204, 214, 243);
+    // subtle light grey
+    Color buttonColor = Colors.blueAccent; // soft accent for active icon
+
     return Scaffold(
       body: _screens[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
+      bottomNavigationBar: CurvedNavigationBar(
+        index: _currentIndex,
+        height: 60.0,
+        backgroundColor:
+            Colors.transparent, // makes the screen visible behind the curve
+        color: navBarColor,
+        buttonBackgroundColor: buttonColor,
+        animationCurve: Curves.easeInOut,
+        animationDuration: const Duration(milliseconds: 300),
+        items: const <Widget>[
+          Icon(Icons.home, size: 30, color: Colors.black87),
+          Icon(Icons.chat_bubble_outline_outlined,
+              size: 30, color: Colors.black87),
+          Icon(Icons.local_activity, size: 30, color: Colors.black87),
+          Icon(Icons.person, size: 30, color: Colors.black87),
+        ],
         onTap: (index) {
           setState(() {
             _currentIndex = index;
           });
         },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-            backgroundColor: Colors.blueAccent,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat_bubble_outline_outlined),
-            label: 'Chat',
-            backgroundColor: Colors.blueAccent,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.local_activity),
-            label: 'Activities',
-            backgroundColor: Colors.blueAccent,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-            backgroundColor: Colors.blueAccent,
-          ),
-        ],
-        selectedItemColor: Colors.redAccent.withOpacity(0.8),
-        unselectedItemColor: Colors.grey,
       ),
     );
   }

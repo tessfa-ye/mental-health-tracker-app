@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mentalassessment/Activities/quiz/questions_screen.dart';
-import 'package:mentalassessment/Activities/quiz/results_screen.dart';
-import 'package:mentalassessment/Activities/quiz/start_screen.dart';
+import 'package:mentalhealthtrackerapp/Activities/quiz/questions_screen.dart';
+import 'package:mentalhealthtrackerapp/Activities/quiz/results_screen.dart';
+import 'package:mentalhealthtrackerapp/Activities/quiz/start_screen.dart';
 
 import 'data/questions.dart';
 
@@ -60,15 +60,17 @@ class _QuizState extends State<Quiz> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 60, 172, 185),
+        backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+        foregroundColor: Colors.black87,
+        elevation: 1,
         title: Text(" Quizes"),
       ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color.fromARGB(255, 142, 151, 13),
-              Color.fromARGB(255, 168, 165, 15),
+              Color.fromARGB(255, 103, 62, 159),
+              Color.fromARGB(255, 62, 165, 144),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,

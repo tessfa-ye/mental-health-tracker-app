@@ -2,7 +2,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mentalassessment/Account/login_page.dart';
+import 'package:mentalhealthtrackerapp/Account/login_page.dart';
 
 import '../pages/hero_page.dart';
 import '../pages/wellcomescreen.dart';

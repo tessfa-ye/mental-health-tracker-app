@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:mentalassessment/Account/login_page.dart';
-import 'package:mentalassessment/Account/register_page.dart';
+import 'package:mentalhealthtrackerapp/Account/login_page.dart';
+import 'package:mentalhealthtrackerapp/Account/register_page.dart';
 
 class LoginOrRegisterPage extends StatefulWidget {
   const LoginOrRegisterPage({super.key});

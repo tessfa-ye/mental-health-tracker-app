@@ -23,21 +23,26 @@ class _ExpertApproveState extends State<ExpertApprove> {
 
   Future<void> _toggleExpertApproval(String expertId, bool approved) async {
     try {
-      CollectionReference experts = FirebaseFirestore.instance.collection('experts');
+      CollectionReference experts =
+          FirebaseFirestore.instance.collection('experts');
       await experts.doc(expertId).update({'approved': approved});
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Expert ${approved ? 'approved' : 'unapproved'}')),
+        SnackBar(
+            content: Text('Expert ${approved ? 'approved' : 'unapproved'}')),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to ${approved ? 'approve' : 'unapprove'} expert: $e')),
+        SnackBar(
+            content: Text(
+                'Failed to ${approved ? 'approve' : 'unapprove'} expert: $e')),
       );
     }
   }
 
   Future<void> _deleteExpert(String expertId) async {
     try {
-      CollectionReference experts = FirebaseFirestore.instance.collection('experts');
+      CollectionReference experts =
+          FirebaseFirestore.instance.collection('experts');
       await experts.doc(expertId).delete();
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Expert deleted')),
@@ -115,7 +120,8 @@ class _ExpertApproveState extends State<ExpertApprove> {
                     children: [
                       Text(
                         name,
-                        style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                            fontSize: 20.0, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 10),
                       Text('Email: $email'),
@@ -140,7 +146,8 @@ class _ExpertApproveState extends State<ExpertApprove> {
                       iconSize: 35,
                       icon: const Icon(Icons.check),
                       color: approved ? Colors.green : Colors.grey,
-                      onPressed: () => _toggleExpertApproval(expertId, !approved),
+                      onPressed: () =>
+                          _toggleExpertApproval(expertId, !approved),
                     ),
                     IconButton(
                       iconSize: 35,
@@ -237,10 +244,6 @@ class CVViewerPage extends StatelessWidget {
   void _showCV(String cvDownloadUrl) async {
     if (await canLaunch(cvDownloadUrl)) {
       await launch(cvDownloadUrl);
-    } else {
-      // ScaffoldMessenger.of(context).showSnackBar(
-      //   const SnackBar(content: Text('Could not open CV')),
-      // );
-    }
+    } else {}
   }
 }

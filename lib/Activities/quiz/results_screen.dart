@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mentalassessment/Activities/quiz/data/questions.dart';
-import 'package:mentalassessment/Activities/quiz/questions_summary/questions_summary.dart';
+import 'package:mentalhealthtrackerapp/Activities/quiz/data/questions.dart';
+import 'package:mentalhealthtrackerapp/Activities/quiz/questions_summary/questions_summary.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen({

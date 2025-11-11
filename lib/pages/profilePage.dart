@@ -4,7 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mentalassessment/main.dart'; // Correct import for patientInfo and Homescreen
+import 'package:mentalhealthtrackerapp/HomeScreen.dart';
+import 'package:mentalhealthtrackerapp/main.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -12,35 +13,60 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  Color myColor = Colors.red;
   bool canEdit = false;
-  TextEditingController age = TextEditingController();
-  TextEditingController phone = TextEditingController();
-  TextEditingController address = TextEditingController();
-  TextEditingController gender = TextEditingController();
-  TextEditingController biography = TextEditingController();
   File? _imageFile;
   final ImagePicker _picker = ImagePicker();
 
-  Future<String> uploadProfileImage(File imageFile) async {
-    try {
-      final String fileName = DateTime.now().millisecondsSinceEpoch.toString() +
-          '.' +
-          imageFile.path.split('.').last;
-      final String storagePath = 'user_profile_images/$fileName';
-      final Reference storageReference =
-          FirebaseStorage.instance.ref().child(storagePath);
+  final TextEditingController name = TextEditingController();
+  final TextEditingController age = TextEditingController();
+  final TextEditingController phone = TextEditingController();
+  final TextEditingController address = TextEditingController();
+  final TextEditingController gender = TextEditingController();
+  final TextEditingController biography = TextEditingController();
 
-      final UploadTask uploadTask = storageReference.putFile(imageFile);
-      final TaskSnapshot taskSnapshot = await uploadTask.whenComplete(() {});
-      final String downloadUrl = await taskSnapshot.ref.getDownloadURL();
-      return downloadUrl;
-    } catch (error) {
-      print('Profile image upload error: $error');
-      return '';
+  @override
+  void initState() {
+    super.initState();
+    loadUserData();
+  }
+
+  /// 🔹 Load user data from Firestore
+  Future<void> loadUserData() async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        final doc = await FirebaseFirestore.instance
+            .collection('Users')
+            .doc(user.email)
+            .get();
+
+        if (doc.exists) {
+          final data = doc.data()!;
+          setState(() {
+            name.text = data['name'] ?? '';
+            age.text = data['age'] ?? '';
+            phone.text = data['phone'] ?? '';
+            address.text = data['address'] ?? '';
+            gender.text = data['gender'] ?? '';
+            biography.text = data['biography'] ?? '';
+
+            // update local global object
+            patientInfo.name = data['name'];
+            patientInfo.address = data['address'];
+            patientInfo.phoneNo = data['phone'];
+            patientInfo.gender = data['gender'];
+            patientInfo.biography = data['biography'];
+            patientInfo.profile_link = data['photoUrl'];
+            patientInfo.email = user.email;
+          });
+        }
+      }
+    } catch (e) {
+      print("Error loading profile data: $e");
     }
   }
 
+  /// 🔹 Pick and upload profile image
   Future<void> pickImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
 
@@ -54,7 +80,7 @@ class _ProfileState extends State<Profile> {
         await FirebaseFirestore.instance
             .collection('Users')
             .doc(patientInfo.email)
-            .update({'profile_link': downloadUrl});
+            .update({'photoUrl': downloadUrl});
 
         setState(() {
           patientInfo.profile_link = downloadUrl;
@@ -63,13 +89,56 @@ class _ProfileState extends State<Profile> {
     }
   }
 
-  @override
-  void initState() {
-    super.initState();
-    address.text = patientInfo.address!;
-    gender.text = patientInfo.gender!;
-    biography.text = patientInfo.biography!;
-    phone.text = patientInfo.phoneNo!;
+  /// 🔹 Upload profile image to Firebase Storage
+  Future<String> uploadProfileImage(File imageFile) async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) return '';
+
+      final String filePath = 'user_profile_images/${user.uid}.jpg';
+      final Reference storageReference =
+          FirebaseStorage.instance.ref().child(filePath);
+
+      final UploadTask uploadTask = storageReference.putFile(imageFile);
+      final TaskSnapshot taskSnapshot = await uploadTask.whenComplete(() {});
+      final String downloadUrl = await taskSnapshot.ref.getDownloadURL();
+      return downloadUrl;
+    } catch (error) {
+      print('Profile image upload error: $error');
+      return '';
+    }
+  }
+
+  /// 🔹 Update user data in Firestore
+  Future<void> saveUserData() async {
+    try {
+      await FirebaseFirestore.instance
+          .collection('Users')
+          .doc(patientInfo.email)
+          .update({
+        'name': name.text,
+        'age': age.text,
+        'gender': gender.text,
+        'phone': phone.text,
+        'address': address.text,
+        'biography': biography.text,
+      });
+
+      // update local global object
+      patientInfo.name = name.text;
+      patientInfo.address = address.text;
+      patientInfo.phoneNo = phone.text;
+      patientInfo.gender = gender.text;
+      patientInfo.biography = biography.text;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Profile updated successfully")),
+      );
+
+      await loadUserData(); // refresh
+    } catch (e) {
+      showSnackBar("Error saving data: $e");
+    }
   }
 
   @override
@@ -77,7 +146,15 @@ class _ProfileState extends State<Profile> {
     var screenSize = MediaQuery.of(context).size;
     var height = screenSize.height;
     var width = screenSize.width;
+
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+        foregroundColor: Colors.black87,
+        elevation: 1,
+        title: Text('My Profile'),
+        centerTitle: true,
+      ),
       body: Center(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -89,15 +166,16 @@ class _ProfileState extends State<Profile> {
                 children: [
                   Container(
                     width: 0.98 * width,
-                    height: height / 5.5,
+                    height: height / 7.5,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage('assets/abc.gif'),
-                          fit: BoxFit.cover),
+                        image: AssetImage('assets/abc.gif'),
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                   Positioned(
-                    top: height / 15,
+                    top: height / 55,
                     child: CircleAvatar(
                       radius: height / 11,
                       backgroundColor: Colors.white,
@@ -109,17 +187,14 @@ class _ProfileState extends State<Profile> {
                         },
                         child: CircleAvatar(
                           radius: height / 12,
-                          child: patientInfo.profile_link == null
-                              ? Icon(
-                                  Icons.person,
-                                  color: Colors.white,
-                                  size: 60,
-                                )
-                              : null,
+                          backgroundColor: Colors.blueGrey,
                           backgroundImage: patientInfo.profile_link != null
                               ? NetworkImage(patientInfo.profile_link!)
                               : null,
-                          backgroundColor: Colors.blueGrey,
+                          child: patientInfo.profile_link == null
+                              ? Icon(Icons.person,
+                                  color: Colors.white, size: 60)
+                              : null,
                         ),
                       ),
                     ),
@@ -127,29 +202,30 @@ class _ProfileState extends State<Profile> {
                 ],
               ),
               SizedBox(height: height / 14.5),
-              Container(
-                child: Text(
-                  patientInfo.name!,
-                  style: TextStyle(fontSize: 30),
-                ),
+              Text(
+                name.text.isNotEmpty ? name.text : patientInfo.name ?? "",
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: canEdit
                     ? [
-                        TextsField("Age", "Enter your Age", age, true),
+                        TextsField("Name", "Enter your name", name, true),
+                        TextsField("Age", "Enter your age", age, true),
                         TextsField("Gender", "Enter your gender", gender, true),
+                        TextsField("Phone", "Enter your phone", phone, true),
                         TextsField(
-                            "Your Phone", "Enter your Phone", phone, true),
+                            "Address", "Enter your address", address, true),
                         TextsField(
                             "Biography", "Enter biography", biography, true),
                       ]
                     : [
-                        TextsField("age", '', age, false),
-                        TextsField("email", '', gender, false),
-                        TextsField(" Phone", "", phone, false),
-                        TextsField("address", "", address, false),
-                        TextsField("Specialist Name", '', biography, false),
+                        TextsField("Name", '', name, false),
+                        TextsField("Age", '', age, false),
+                        TextsField("Gender", '', gender, false),
+                        TextsField("Phone", '', phone, false),
+                        TextsField("Address", '', address, false),
+                        TextsField("Biography", '', biography, false),
                       ],
               ),
               Container(
@@ -171,40 +247,21 @@ class _ProfileState extends State<Profile> {
                         ),
                       ),
                       onPressed: () async {
+                        if (canEdit) {
+                          await saveUserData();
+                        }
                         setState(() {
                           canEdit = !canEdit;
                         });
-                        if (canEdit == false) {
-                          if (age.text.isEmpty) {
-                            showSnackBar('Please Enter your age');
-                          } else if (phone.text.isEmpty) {
-                            showSnackBar("Please Enter your phone");
-                          } else {
-                            await FirebaseFirestore.instance
-                                .collection('Users')
-                                .doc(patientInfo.email)
-                                .update({
-                              'age': age.text,
-                              'gender': gender.text,
-                              'phone': phone.text,
-                              'address': address.text,
-                              'biography': biography.text,
-                            });
-                            patientInfo.address = address.text;
-                            patientInfo.phoneNo = phone.text;
-                            patientInfo.gender = gender.text;
-                            patientInfo.biography = biography.text;
-                          }
-                        }
                       },
                       child: Text(
-                        canEdit != true ? 'Edit Profile' : 'Save',
-                        style: TextStyle(fontSize: 15),
+                        canEdit ? 'Save' : 'Edit Profile',
+                        style: TextStyle(fontSize: 16),
                       ),
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -213,25 +270,28 @@ class _ProfileState extends State<Profile> {
   }
 
   void showSnackBar(String text) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      behavior: SnackBarBehavior.floating,
-      content: Text(text),
-    ));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(behavior: SnackBarBehavior.floating, content: Text(text)),
+    );
   }
 }
 
+/// 🔹 Reusable TextField widget
 class TextsField extends StatelessWidget {
-  TextsField(this.fieldname, this.hint, this.controller, this.editingEnabled);
   final String fieldname;
   final String hint;
   final TextEditingController controller;
   final bool editingEnabled;
+
+  const TextsField(
+      this.fieldname, this.hint, this.controller, this.editingEnabled);
 
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     var height = screenSize.height;
     var width = screenSize.width;
+
     return Container(
       padding: EdgeInsets.only(
         right: width / 14,
@@ -243,14 +303,12 @@ class TextsField extends StatelessWidget {
         children: [
           Text(
             fieldname,
-            style: editingEnabled
-                ? TextStyle(color: Colors.grey[900], fontSize: 15)
-                : TextStyle(
-                    color: Colors.grey[900],
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    fontStyle: FontStyle.italic,
-                  ),
+            style: TextStyle(
+              color: Colors.grey[900],
+              fontSize: 15,
+              fontWeight: editingEnabled ? FontWeight.normal : FontWeight.bold,
+              fontStyle: editingEnabled ? FontStyle.normal : FontStyle.italic,
+            ),
           ),
           SizedBox(height: height / 136),
           SizedBox(
@@ -258,23 +316,21 @@ class TextsField extends StatelessWidget {
             width: width / 1.12,
             child: editingEnabled
                 ? TextField(
-                    readOnly: !editingEnabled,
                     controller: controller,
-                    onChanged: (value) {},
                     cursorColor: Colors.redAccent.withOpacity(0.8),
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
                       hintText: hint,
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
                           width: 2,
                           color: Colors.redAccent.withOpacity(0.8),
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
                           width: 2,
                           color: Colors.redAccent.withOpacity(0.8),

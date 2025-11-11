@@ -1,4 +1,4 @@
-import 'package:mentalassessment/assessment/knowledge_base.dart';
+import 'package:mentalhealthtrackerapp/assessment/knowledge_base.dart';
 
 class InferenceEngine {
   KnowledgeBase knowledgeBase;

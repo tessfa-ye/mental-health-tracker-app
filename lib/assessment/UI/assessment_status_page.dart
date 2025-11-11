@@ -9,12 +9,14 @@ class AssessmentStatusPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+        foregroundColor: Colors.black87,
+        elevation: 1,
         title: const Text(
           'Assessment Status',
           style: TextStyle(fontSize: 23.0, fontWeight: FontWeight.w900),
         ),
         centerTitle: true,
-        backgroundColor: Colors.red,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {

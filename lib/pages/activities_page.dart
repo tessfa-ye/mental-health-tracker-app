@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mentalassessment/HomeScreen.dart';
-import 'package:mentalassessment/components/custom_list_tile.dart';
-import 'package:mentalassessment/Activities/breathing_screen.dart';
-import 'package:mentalassessment/Activities/meditation_screen.dart';
-import 'package:mentalassessment/Activities/quiz/quiz.dart';
+import 'package:mentalhealthtrackerapp/HomeScreen.dart';
+import 'package:mentalhealthtrackerapp/components/custom_list_tile.dart';
+import 'package:mentalhealthtrackerapp/Activities/breathing_screen.dart';
+import 'package:mentalhealthtrackerapp/Activities/meditation_screen.dart';
+import 'package:mentalhealthtrackerapp/Activities/quiz/quiz.dart';
 
 class ActivitiesScreen extends StatelessWidget {
   const ActivitiesScreen({super.key});
@@ -14,9 +14,10 @@ class ActivitiesScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Some Activities '),
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 60, 172, 185),
+        backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+        foregroundColor: Colors.black87,
+        elevation: 1,
       ),
-      drawer: const Menu(),
       body: ListView(
         padding: EdgeInsets.zero,
         scrollDirection: Axis.vertical,

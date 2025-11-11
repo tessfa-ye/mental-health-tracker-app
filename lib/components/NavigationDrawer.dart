@@ -4,7 +4,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mentalassessment/Account/login_page.dart';
+import 'package:mentalhealthtrackerapp/Account/login_page.dart';
 import '../BottomNavigationBar.dart';
 import 'helpers/info.dart';
 
@@ -23,9 +23,10 @@ class _TopdrawerState extends State<Topdrawer> {
     var width = size.width;
     Color color = Colors.black;
     return Drawer(
+      width: width / 1.8,
       backgroundColor: Colors.white,
       child: Container(
-        color: Colors.black26,
+        color: Colors.black12,
         child: Padding(
           padding: const EdgeInsets.only(top: 100, left: 20),
           child: Column(
@@ -50,8 +51,10 @@ class _TopdrawerState extends State<Topdrawer> {
                 ),
                 onTap: () {
                   Navigator.pop(context);
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => Homescreen()));
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AppBottomNavigation()));
                 },
               ),
               const SizedBox(

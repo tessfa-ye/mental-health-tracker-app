@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mentalassessment/admin_page.dart';
-import 'package:mentalassessment/pages/users_page.dart'; // Import the UsersPage
+import 'package:mentalhealthtrackerapp/expert_approve.dart';
+import 'package:mentalhealthtrackerapp/pages/users_page.dart'; // Import the UsersPage
 
 class AdminPage extends StatelessWidget {
   const AdminPage({Key? key}) : super(key: key);
@@ -9,9 +9,11 @@ class AdminPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+        foregroundColor: Colors.black87,
+        elevation: 1,
         title: const Text('Admin Page'),
         centerTitle: true,
-        backgroundColor: Colors.redAccent.withOpacity(0.8),
       ),
       body: Column(
         children: [

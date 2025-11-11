@@ -1,4 +1,4 @@
-import 'package:mentalassessment/Account/login_or_register_page.dart';
+import 'package:mentalhealthtrackerapp/Account/login_or_register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:intro_screen_onboarding_flutter/intro_app.dart';
 
@@ -30,7 +30,7 @@ class _IntroState extends State<Intro> {
     ),
     Introduction(
       title: 'Are You Ready',
-      subTitle: 'Welcome TO Mental Health Tracker Know You can start',
+      subTitle: 'Welcome To Mental Health Tracker. You can start',
       imageUrl: 'assets/images/mentaldep.jpg',
       titleTextStyle: tstyle,
       subTitleTextStyle: ststyle,
@@ -41,7 +41,6 @@ class _IntroState extends State<Intro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: IntroScreenOnboarding(
         backgroudColor: Colors.white,
         foregroundColor: const Color(0xFF0165ff),
@@ -51,10 +50,9 @@ class _IntroState extends State<Intro> {
             context,
             MaterialPageRoute(
               builder: (context) => const LoginOrRegisterPage(),
-            ), //MaterialPageRoute
+            ),
           );
         },
-        // foregroundColor: Colors.red,
       ),
     );
   }

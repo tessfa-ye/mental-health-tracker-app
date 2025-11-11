@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:mentalassessment/assessment/inference_engine.dart';
-import 'package:mentalassessment/assessment/knowledge_base.dart';
-import 'package:mentalassessment/assessment/UI/result_page.dart';
+import 'package:mentalhealthtrackerapp/assessment/inference_engine.dart';
+import 'package:mentalhealthtrackerapp/assessment/knowledge_base.dart';
+import 'package:mentalhealthtrackerapp/assessment/UI/result_page.dart';
 import 'assessment_status_page.dart';
 import 'dart:async';
 
@@ -157,7 +157,9 @@ class _ExpertSystemAppState extends State<ExpertSystemApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 61, 138, 171),
+          backgroundColor: Color.fromARGB(255, 204, 214, 243), // soft off-white
+          foregroundColor: Colors.black87,
+          elevation: 1,
           title: const Text('Check Your Mentality',
               style: TextStyle(fontSize: 23.0, fontWeight: FontWeight.w900),
               textAlign: TextAlign.center),

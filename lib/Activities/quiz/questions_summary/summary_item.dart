@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mentalassessment/Activities/quiz/questions_summary/question_identifier.dart';
+import 'package:mentalhealthtrackerapp/Activities/quiz/questions_summary/question_identifier.dart';
 
 class SummaryItem extends StatelessWidget {
   const SummaryItem(this.itemData, {super.key});
